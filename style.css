@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#test-form {
+  width: 30rem;
+  height: 30rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin-top: 10px;
+}
+
+input {
+  width: 30em;
+  text-align: center;
+}
