@@ -21,7 +21,7 @@ function checkDogs(dogsJulia, dogsKate) {
   }
 }
 
-/* // ------ METHODS ------
+// ------ METHODS ------
 //slice
 console.log("slice");
 console.log(julia.slice(2)); //does NOT return deleted items
@@ -31,4 +31,3 @@ console.log(julia); //does NOT mutate original array
 console.log("splice");
 console.log(julia.splice(2)); //splice returns deleted items
 console.log(julia); //it mutates original array
- */
