@@ -18,3 +18,38 @@ function myFunction(a, n) {
 console.log(myFunction("abcd", 1));
 console.log(myFunction("zyxbwpl", 5));
 console.log(myFunction("gfedcba", 3));
+
+//javascript practice #2
+// Write a function that takes two numbers (a and b) as argument
+// Return b percent of a
+/* 
+  Test Cases
+  1) percentOf(100, 50) -> 50
+  2) percentOf(10, 1) -> 0.1
+  3) percentOf(500, 25) -> 125
+*/
+
+function percentOf(a, b) {
+  //percentage of a number is done by multiplying it by number in such format 0.1, 0.2 etc
+  //take b and divide by 100 to turn it into a decimal
+  //multiply a by that number
+
+  return a * (b / 100);
+}
+
+console.log(percentOf(100, 50));
+console.log(percentOf(10, 1));
+console.log(percentOf(500, 25));
+
+//javascript practice problem #3
+// Write a function that takes two values, say a and b, as arguments
+// Return true if the two values are equal and of the same type
+function myFunction2(a, b) {
+  return a === b;
+}
+
+//== vs === ! all depends on what you need code wise
+
+console.log(myFunction2(2, 3)); //false because not equal in value, but equal in type
+console.log(myFunction2(3, 3)); //true; equal in value and type
+console.log(myFunction2(1, "1")); // false, equal in value but not type
