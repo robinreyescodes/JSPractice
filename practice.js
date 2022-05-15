@@ -53,3 +53,29 @@ function myFunction2(a, b) {
 console.log(myFunction2(2, 3)); //false because not equal in value, but equal in type
 console.log(myFunction2(3, 3)); //true; equal in value and type
 console.log(myFunction2(1, "1")); // false, equal in value but not type
+
+// callback functions
+// tip calculator
+
+const bill1 = billCalculator(30, addTip); //high order function
+const bill2 = billCalculator(60, addTip); //high order function
+
+console.log(`bill #1: ${bill1}`); //template literal
+console.log(`bill #2: ${bill2}`);
+
+/* 
+  our callback function takes the bill and finds the tip amount
+*/
+function addTip(bill) {
+  if (bill < 50) {
+    return bill * 0.2;
+  }
+  return bill * 0.4;
+}
+
+/* 
+  function that adds up our bill plus the tip from our callback 
+*/
+function billCalculator(bill, callback) {
+  return bill + callback(bill);
+}
