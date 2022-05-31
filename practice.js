@@ -29,14 +29,19 @@ console.log(string.replaceAll(" ", ""));
 //count the vowels inside a string;
 console.log("\npractice problem 5");
 function numOfVowels(string) {
-  const vowels = "aeiou";
-  let counter = 0;
+  const vowels = "aeiou"; //have the vowels in a string
+  let counter = 0; //vowel counter
+
+  //for loop to iterate string
   for (const letter of string) {
+    //since our vowels are in a string
+    //we can easily find it with .includes()
     if (vowels.includes(letter)) {
       counter++;
     }
   }
   console.log(`our string is: ${string}`);
+  //edge case if there are no vowels
   if (counter == 0) {
     return "no vowels in string";
   }
