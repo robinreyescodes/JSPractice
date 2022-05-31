@@ -25,3 +25,22 @@ console.log(toMiles(10));
 console.log("\npractice problem 4");
 const string = "robin reyes is the coolest";
 console.log(string.replaceAll(" ", ""));
+
+//count the vowels inside a string;
+console.log("\npractice problem 5");
+function numOfVowels(string) {
+  const vowels = "aeiou";
+  let counter = 0;
+  for (const letter of string) {
+    if (vowels.includes(letter)) {
+      counter++;
+    }
+  }
+  console.log(`our string is: ${string}`);
+  if (counter == 0) {
+    return "no vowels in string";
+  }
+  return counter;
+}
+
+console.log(numOfVowels("hi there"));
