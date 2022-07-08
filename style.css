@@ -9,13 +9,16 @@ html {
 }
 
 #navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   max-width: 142rem;
   margin: 0 auto;
   padding: 2rem 3rem;
+  height: 100vh;
+}
+#nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #logo-img {
@@ -50,4 +53,39 @@ html {
 
 #nav-links a:last-child:hover {
   background-color: #54b76b;
+}
+
+.header-title {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 700px 1fr;
+  max-width: 110rem;
+  margin: auto;
+  align-content: center;
+  justify-content: center;
+  height: 90%;
+}
+
+.info .title {
+  font-size: 5.4rem;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  color: #444444;
+  margin-bottom: 1rem;
+}
+
+.sub-title {
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+.hero-img {
+  width: 50rem;
+}
+
+.info a {
+  display: block;
+  margin-top: 3rem;
+  color: #77cc8b;
+  font-size: 1.6rem;
 }
