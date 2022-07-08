@@ -1,51 +1,65 @@
-//print all even numbers from 0 - 10
-console.log("practice problem 1");
-for (let i = 2; i <= 10; i += 2) {
-  console.log(i);
+const dogs = [
+  { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { weight: 8, curFood: 200, owners: ["Matilda"] },
+  { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
+  { weight: 32, curFood: 340, owners: ["Michael"] },
+];
+
+//recPortion = current > recFood * 0.9 && current < recFood * 1.1
+//recFood = weight ** 0.75 * 28
+
+//loop over dogs and add 'recFood' property to each object along with its calculation
+dogs.forEach((dog) => (dog.recFood = dog.weight ** 0.75 * 28));
+
+//find Sarah's dog and log to console whether its eating too  much or too little
+
+const sarahsDog = dogs.find((dog) => dog.owners.includes("Sarah"));
+
+const muchOrLittle =
+  sarahsDog.curFood > sarahsDog.recFood * 1.1
+    ? "too much"
+    : sarahsDog.curFood < sarahsDog.recFood * 0.9
+    ? "too little"
+    : "just right";
+
+console.log(`Sarah's dog eats ${muchOrLittle}`);
+
+//create an array separating owners that eats too much or too little
+//turn above muchOrLittle into a function
+function eatTooMuchTooLittle(curFood, recFood) {
+  return curFood > recFood * 1.1
+    ? "too much"
+    : curFood < recFood * 0.9
+    ? "too little"
+    : "just right";
 }
+const ownersEatTooMuch = [];
+const ownersEatTooLittle = [];
 
-console.log();
-//print a table containing multiples from 1 - 10
-//let our number be 5
-console.log("practice problem 2");
-let num = 5;
-for (let i = 1; i <= 10; i++) {
-  console.log(num * i);
+//loop through each of dogs
+dogs.forEach((dog) => {
+  let string = eatTooMuchTooLittle(dog.curFood, dog.recFood);
+  return string === "too much"
+    ? ownersEatTooMuch.push(dog.owners)
+    : string === "too little"
+    ? ownersEatTooLittle.push(dog.owners)
+    : "";
+});
+
+function ownersString(owners) {
+  return owners
+    .flat()
+    .reduce((previous, current) => `${previous} and ${current}`);
 }
+console.log(ownersString(ownersEatTooLittle) + "'s dogs eat too little");
+console.log(ownersString(ownersEatTooMuch) + "'s dogs eat too much");
 
-console.log("\npractice problem 3");
-//turn kilometers to miles with a function
-function toMiles(kilometers) {
-  const miles = kilometers * 0.621371;
-  return `${miles} miles`;
-}
-console.log(toMiles(10));
+console.log(dogs.some((dog) => dog.curFood === dog.recFood));
+console.log(
+  dogs.some(
+    (dog) => eatTooMuchTooLittle(dog.curFood, dog.recFood) === "just right"
+  )
+);
 
-//get rid of the spaces in a string
-console.log("\npractice problem 4");
-const string = "robin reyes is the coolest";
-console.log(string.replaceAll(" ", ""));
-
-//count the vowels inside a string;
-console.log("\npractice problem 5");
-function numOfVowels(string) {
-  const vowels = "aeiou"; //have the vowels in a string
-  let counter = 0; //vowel counter
-
-  //for loop to iterate string
-  for (const letter of string) {
-    //since our vowels are in a string
-    //we can easily find it with .includes()
-    if (vowels.includes(letter)) {
-      counter++;
-    }
-  }
-  console.log(`our string is: ${string}`);
-  //edge case if there are no vowels
-  if (counter == 0) {
-    return "no vowels in string";
-  }
-  return counter;
-}
-
-console.log(numOfVowels("hi there"));
+const dogsCopy = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(dogsCopy);
