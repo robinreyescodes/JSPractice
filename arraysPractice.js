@@ -30,3 +30,23 @@ function checkDogs(dog1, dog2) {
     );
   });
 }
+
+// ----------------------------------------------------------------
+//#2
+
+console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+
+//function, takes arrays of dogs ages called 'ages'
+function calcAverageHumanAge(ages) {
+  //calculate dog age in human years
+  let humanAges = ages
+    .map((age) => {
+      if (age <= 2) return age * 2;
+      if (age > 2) return 16 + age * 4;
+    })
+    .filter((age) => age >= 18)
+    .reduce((prev, curr, i, arr) => {
+      return prev + curr / arr.length;
+    }, 0);
+  return humanAges;
+}
