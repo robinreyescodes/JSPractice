@@ -1,33 +1,32 @@
-//Data 1
-const julia = [3, 5, 2, 12, 7];
-const kate = [4, 1, 15, 8, 3];
+//coding challenges for warm up
+//7.10.22
 
-checkDogs(julia, kate);
+//#1
+//test data 1
+// const julia = [3, 5, 2, 12, 7];
+// const kate = [4, 1, 15, 8, 3];
 
-//creating function 'checkDogs', accepting two arrays as parameters
-function checkDogs(dogsJulia, dogsKate) {
-  const juliasCorrected = dogsJulia.slice(2); //starts from 2nd index to the end
-  const dogsCombined = juliasCorrected.concat(dogsKate);
+//test data 2
+const julia = [9, 16, 6, 8, 3];
+const kate = [10, 5, 6, 1, 4];
 
-  //different types of for loops
-  //regular for
-  for (let i = 0; i < dogsCombined.length; i++) {
-    if (dogsCombined[i] >= 3)
-      console.log(
-        `Dog number ${i + 1} is an adult and is ${dogsCombined[i]} years old`
-      );
-    if (dogsCombined[i] < 3)
-      console.log(`Dog number ${i + 1} is still a puppy 🐶`);
-  }
+// checkDogs(julia, kate);
+//create function that accepts two arrays of dogs
+function checkDogs(dog1, dog2) {
+  //first and last two pets in array1 are CATS not dogs
+  //shallow copy (do not mutate original array)
+  //slice here will be best; remember, do not include second index element
+  const dog1Updated = dog1.slice(1, -2);
+  //create array with both the updated array and other array
+  const allDogs = dog1Updated.concat(dog2);
+  console.log(allDogs);
+  //log to console a string based off of age
+  allDogs.forEach((age, idx) => {
+    let string = `Dog number ${idx + 1}`;
+    console.log(
+      age >= 3
+        ? (string += ` is an adult and is ${age} years old`)
+        : (string += ` is still a puppy`)
+    );
+  });
 }
-
-// ------ METHODS ------
-//slice
-console.log("slice");
-console.log(julia.slice(2)); //does NOT return deleted items
-console.log(julia); //does NOT mutate original array
-
-//splice
-console.log("splice");
-console.log(julia.splice(2)); //splice returns deleted items
-console.log(julia); //it mutates original array
