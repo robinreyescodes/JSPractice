@@ -34,7 +34,7 @@ function checkDogs(dog1, dog2) {
 // ----------------------------------------------------------------
 //#2
 
-console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
+// console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]));
 
 //function, takes arrays of dogs ages called 'ages'
 function calcAverageHumanAge(ages) {
@@ -50,3 +50,14 @@ function calcAverageHumanAge(ages) {
     }, 0);
   return humanAges;
 }
+
+// ----------------------------------------------------------------
+//#3
+const calcAvgAgeArrow = (ages) => {
+  const humanAges = ages.map((age) => (age <= 2 ? age * 2 : 16 + age * 4));
+  const agesFiltered = humanAges.filter((age) => age >= 18);
+  const agesAverage = agesFiltered.reduce((prev, cur) => prev + cur, 0);
+  return agesAverage / agesFiltered.length;
+};
+
+// console.log(calcAvgAgeArrow([16, 6, 10, 5, 6, 1, 4]));
