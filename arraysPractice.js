@@ -61,3 +61,83 @@ const calcAvgAgeArrow = (ages) => {
 };
 
 // console.log(calcAvgAgeArrow([16, 6, 10, 5, 6, 1, 4]));
+
+// ----------------------------------------------------------------
+//#4
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//create players arrays for each team
+const players1 = game.players[0];
+const players2 = game.players[1];
+
+//first player = goalkeeper; fieldPlayers for the rest
+const [goalkeeper, ...fieldPlayers] = players1;
+
+//create allPlayers containing all playres of both teams
+const allPlayers = players1.concat(players2);
+
+//create players1Final with added players
+const allPlayersFinal = [...players1, "Thiago", "Coutinho", "Perisic"];
+
+//create variables for each odd in game.odds
+const { team1, x, team2 } = game.odds;
+console.log(team1);
+console.log(x); //draw called x in object
+console.log(team2);
+
+//create a function that prints out all the names of the players
+printGoals(...game.scored);
+
+function printGoals(...players) {
+  for (const player of players) {
+    console.log(player, players.length);
+  }
+}
+
+//print to the console which team is more likely to win
+//without if/else or ternary operator
+
+//the || looks for the first true value, if not it continues
+console.log(team1 > team2 || `team 2 has more chance of winning`);
+
+//the && looks for the first false value if not, it continues
+console.log(team1 < team2 && `team 1 has more chnace of winning`);
